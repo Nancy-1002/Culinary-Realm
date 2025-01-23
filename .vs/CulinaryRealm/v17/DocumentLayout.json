@@ -3,8 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\HP\\source\\repos\\CulinaryRealm\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{DEB9EE3C-EDB0-4FCA-A082-0A4762621B29}|API\\API.csproj|c:\\users\\hp\\source\\repos\\culinaryrealm\\api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DEB9EE3C-EDB0-4FCA-A082-0A4762621B29}|API\\API.csproj|solutionrelative:api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{93C37878-48DE-49D1-B4F1-A6D850DC3771}|Infrastructure\\Infrastructure.csproj|c:\\users\\hp\\source\\repos\\culinaryrealm\\infrastructure\\data\\reciperepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{93C37878-48DE-49D1-B4F1-A6D850DC3771}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\data\\reciperepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3CE5EA00-CE09-40C5-A0A7-4FF3643F3CC7}|Core\\Core.csproj|c:\\users\\hp\\source\\repos\\culinaryrealm\\core\\interfaces\\ireciperepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3CE5EA00-CE09-40C5-A0A7-4FF3643F3CC7}|Core\\Core.csproj|solutionrelative:core\\interfaces\\ireciperepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{DEB9EE3C-EDB0-4FCA-A082-0A4762621B29}|API\\API.csproj|c:\\users\\hp\\source\\repos\\culinaryrealm\\api\\controllers\\recipescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DEB9EE3C-EDB0-4FCA-A082-0A4762621B29}|API\\API.csproj|solutionrelative:api\\controllers\\recipescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DEB9EE3C-EDB0-4FCA-A082-0A4762621B29}|API\\API.csproj|c:\\users\\hp\\source\\repos\\culinaryrealm\\api\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{DEB9EE3C-EDB0-4FCA-A082-0A4762621B29}|API\\API.csproj|solutionrelative:api\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3CE5EA00-CE09-40C5-A0A7-4FF3643F3CC7}|Core\\Core.csproj|c:\\users\\hp\\source\\repos\\culinaryrealm\\core\\core.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{3CE5EA00-CE09-40C5-A0A7-4FF3643F3CC7}|Core\\Core.csproj|solutionrelative:core\\core.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     }
   ],
   "DocumentGroupContainers": [
@@ -23,14 +43,79 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\CulinaryRealm\\API\\Program.cs",
+              "RelativeDocumentMoniker": "API\\Program.cs",
+              "ToolTip": "C:\\Users\\HP\\source\\repos\\CulinaryRealm\\API\\Program.cs",
+              "RelativeToolTip": "API\\Program.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAIwBYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-21T13:11:46.586Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "IRecipeRepository.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\CulinaryRealm\\Core\\Interfaces\\IRecipeRepository.cs",
+              "RelativeDocumentMoniker": "Core\\Interfaces\\IRecipeRepository.cs",
+              "ToolTip": "C:\\Users\\HP\\source\\repos\\CulinaryRealm\\Core\\Interfaces\\IRecipeRepository.cs",
+              "RelativeToolTip": "Core\\Interfaces\\IRecipeRepository.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAAAAoAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-21T13:06:14.988Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "RecipeRepository.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\CulinaryRealm\\Infrastructure\\Data\\RecipeRepository.cs",
+              "RelativeDocumentMoniker": "Infrastructure\\Data\\RecipeRepository.cs",
+              "ToolTip": "C:\\Users\\HP\\source\\repos\\CulinaryRealm\\Infrastructure\\Data\\RecipeRepository.cs",
+              "RelativeToolTip": "Infrastructure\\Data\\RecipeRepository.cs",
+              "ViewState": "AgIAAC8AAAAAAAAAAADwvzcAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-21T13:01:29.946Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "RecipesController.cs",
               "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\CulinaryRealm\\API\\Controllers\\RecipesController.cs",
               "RelativeDocumentMoniker": "API\\Controllers\\RecipesController.cs",
               "ToolTip": "C:\\Users\\HP\\source\\repos\\CulinaryRealm\\API\\Controllers\\RecipesController.cs",
               "RelativeToolTip": "API\\Controllers\\RecipesController.cs",
-              "ViewState": "AgIAACcAAAAAAAAAAAAYwEUAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-21T10:22:11.657Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "appsettings.Development.json",
+              "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\CulinaryRealm\\API\\appsettings.Development.json",
+              "RelativeDocumentMoniker": "API\\appsettings.Development.json",
+              "ToolTip": "C:\\Users\\HP\\source\\repos\\CulinaryRealm\\API\\appsettings.Development.json",
+              "RelativeToolTip": "API\\appsettings.Development.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAwwAsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-01-22T05:27:07.21Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Core.csproj",
+              "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\CulinaryRealm\\Core\\Core.csproj",
+              "RelativeDocumentMoniker": "Core\\Core.csproj",
+              "ToolTip": "C:\\Users\\HP\\source\\repos\\CulinaryRealm\\Core\\Core.csproj",
+              "RelativeToolTip": "Core\\Core.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-01-21T12:30:36.884Z",
               "EditorCaption": ""
             }
           ]

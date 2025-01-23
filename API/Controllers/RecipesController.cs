@@ -2,28 +2,25 @@
 using Core.Entities;
 using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
+using Core.Interfaces;
 namespace API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class RecipesController : ControllerBase
+    public class RecipesController(IRecipeRepository repo) : ControllerBase
     {
-        private readonly RecipeContext context;
-
-        public RecipesController(RecipeContext context)
-        {
-            this.context = context;
-        }
+        
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Recipe>>> GetRecipes()
+        public async Task<ActionResult<IEnumerable<Recipe>>> GetRecipes(string? cuisine, string? mealtype, 
+            string? difficulty, string? sort)
         {
-            return await context.Recipes.ToListAsync();
+            return Ok(await repo.GetRecipesAsync(cuisine,mealtype,difficulty,sort));
         }
 
         [HttpGet("{id:int}")]
         public async Task<ActionResult<Recipe>> GetRecipeById(int id)
         {
-            var recipe = await context.Recipes.FindAsync(id);
+            var recipe = await repo.GetRecipeByIdAsync(id);
 
             if (recipe == null) {
                 return NotFound();
@@ -34,11 +31,14 @@ namespace API.Controllers
         [HttpPost]
         public async Task<ActionResult<Recipe>> CreateRecipe(Recipe recipe)
         {
-            context.Recipes.Add(recipe);
+            repo.AddRecipe(recipe);
 
-            await context.SaveChangesAsync();
+            if(await repo.SaveChangesAsync())
+            {
+                return CreatedAtAction("GetRecipeById", new { id = recipe.Id }, recipe);
+            }
 
-            return recipe;
+            return BadRequest("Problem creating the recipe");
         }
 
         [HttpPut("{id:int}")]
@@ -48,29 +48,51 @@ namespace API.Controllers
             {
                 return BadRequest("Cannot update this recipe");
             }
-            context.Entry(recipe).State = EntityState.Modified;
+            repo.UpdateRecipe(recipe);
+            if (await repo.SaveChangesAsync())
+            {
+                return NoContent();
+            }
 
-            await context.SaveChangesAsync();
-
-            return NoContent();
+            return BadRequest("Problem updating the recipe");   
         }
 
         [HttpDelete("{id:int}")]
         public async Task<ActionResult> DeleteRecipe(int id)
         {
-            var recipe = await context.Recipes.FindAsync(id);
+            var recipe = await repo.GetRecipeByIdAsync(id);
             if (recipe == null) return NotFound();
 
-            context.Recipes.Remove(recipe);
-            await context.SaveChangesAsync();
+            repo.DeleteRecipe(recipe);
+            if (await repo.SaveChangesAsync())
+            {
+                return NoContent();
+            }
+            return BadRequest("Problem deleting the recipe");
+        }
 
-            return NoContent();
+        [HttpGet("cuisines")]
+        public async Task<ActionResult<IReadOnlyList<string>>> GetCuisines()
+        {
+            return Ok(await repo.GetCuisineAsync());
         }
 
 
+        [HttpGet("mealtypes")]
+        public async Task<ActionResult<IReadOnlyList<string>>> GetMealTypes()
+        {
+            return Ok(await repo.GetMealTypeAsync());
+        }
+
+        [HttpGet("difficulty")]
+        public async Task<ActionResult<IReadOnlyList<string>>> GetDifficulties()
+        {
+            return Ok(await repo.GetDifficultyAsync());
+        }
+
         private bool RecipeExists(int id)
         {
-            return context.Recipes.Any(x=> x.Id == id);
+            return repo.RecipeExists(id);
         }
     }
 }

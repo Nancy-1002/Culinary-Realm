@@ -1,9 +1,11 @@
+using Core.Interfaces;
 using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
+using CloudinaryDotNet;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+
 
 
 builder.Services.AddControllers();
@@ -13,6 +15,7 @@ builder.Services.AddDbContext<RecipeContext>(opts =>
 
 });
 
+builder.Services.AddScoped<IRecipeRepository, RecipeRepository>();
 var app = builder.Build();
 
 app.MapControllers();
