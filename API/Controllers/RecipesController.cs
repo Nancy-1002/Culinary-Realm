@@ -3,26 +3,37 @@ using Core.Entities;
 using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using Core.Interfaces;
+using Core.Specifications;
+
 namespace API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class RecipesController(IRecipeRepository repo) : ControllerBase
+    public class RecipesController(IGenericRepository<Recipe> repo, RecipeContext context) : ControllerBase
     {
         
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Recipe>>> GetRecipes(string? cuisine, string? mealtype, 
+        public async Task<ActionResult<IEnumerable<Recipe>>> GetRecipes(string? cuisine, string? mealtype,
             string? difficulty, string? sort)
         {
-            return Ok(await repo.GetRecipesAsync(cuisine,mealtype,difficulty,sort));
+            var spec = new RecipeSpecification(cuisine, mealtype, difficulty, sort);
+
+            var recipes = await repo.ListAsync(spec);
+            return Ok(recipes);
         }
 
         [HttpGet("{id:int}")]
         public async Task<ActionResult<Recipe>> GetRecipeById(int id)
         {
-            var recipe = await repo.GetRecipeByIdAsync(id);
+            
+            var recipe = await context.Recipes
+                 .Include(r => r.Steps) 
+                 .Include(r => r.Ingredients)
+                 .FirstOrDefaultAsync(r => r.Id == id);
 
-            if (recipe == null) {
+
+            if (recipe == null)
+            {
                 return NotFound();
             }
             return recipe;
@@ -31,9 +42,15 @@ namespace API.Controllers
         [HttpPost]
         public async Task<ActionResult<Recipe>> CreateRecipe(Recipe recipe)
         {
-            repo.AddRecipe(recipe);
+            // Ensure Steps collection is initialized
+            if (recipe.Steps == null)
+            {
+                recipe.Steps = new List<Steps>();
+            }
 
-            if(await repo.SaveChangesAsync())
+            repo.Add(recipe);
+
+            if (await repo.SaveAllAsync())
             {
                 return CreatedAtAction("GetRecipeById", new { id = recipe.Id }, recipe);
             }
@@ -48,23 +65,30 @@ namespace API.Controllers
             {
                 return BadRequest("Cannot update this recipe");
             }
-            repo.UpdateRecipe(recipe);
-            if (await repo.SaveChangesAsync())
+
+            // Optionally handle updates to Steps here if needed
+            repo.Update(recipe);
+
+            if (await repo.SaveAllAsync())
             {
                 return NoContent();
             }
 
-            return BadRequest("Problem updating the recipe");   
+            return BadRequest("Problem updating the recipe");
         }
 
         [HttpDelete("{id:int}")]
         public async Task<ActionResult> DeleteRecipe(int id)
         {
-            var recipe = await repo.GetRecipeByIdAsync(id);
+            var recipe = await context.Recipes
+                 .Include(r => r.Steps) // Include Steps to ensure cascade delete
+                 .Include(r=>r.Ingredients)
+                 .FirstOrDefaultAsync(r => r.Id == id);
+
             if (recipe == null) return NotFound();
 
-            repo.DeleteRecipe(recipe);
-            if (await repo.SaveChangesAsync())
+            repo.Remove(recipe);
+            if (await repo.SaveAllAsync())
             {
                 return NoContent();
             }
@@ -74,25 +98,28 @@ namespace API.Controllers
         [HttpGet("cuisines")]
         public async Task<ActionResult<IReadOnlyList<string>>> GetCuisines()
         {
-            return Ok(await repo.GetCuisineAsync());
+            // Example implementation: return distinct cuisines
+            var spec = new CuisineListSpecification();
+            return Ok(await repo.ListAsync(spec));
         }
-
 
         [HttpGet("mealtypes")]
         public async Task<ActionResult<IReadOnlyList<string>>> GetMealTypes()
         {
-            return Ok(await repo.GetMealTypeAsync());
+            var spec = new MealTypeListSpecification();
+            return Ok(await repo.ListAsync(spec));
         }
 
         [HttpGet("difficulty")]
         public async Task<ActionResult<IReadOnlyList<string>>> GetDifficulties()
         {
-            return Ok(await repo.GetDifficultyAsync());
+            var spec = new DifficultyListSpecification();
+            return Ok(await repo.ListAsync(spec));
         }
 
         private bool RecipeExists(int id)
         {
-            return repo.RecipeExists(id);
+            return repo.Exists(id);
         }
     }
 }

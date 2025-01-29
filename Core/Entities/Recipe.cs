@@ -20,9 +20,10 @@ namespace Core.Entities
         public required string ImageUrl { get; set; } 
         public required string VideoUrl {  get; set; }
         public required string Cuisine {  get; set; } 
-        public required string MealType {  get; set; } 
+        public required string MealType {  get; set; }
 
-
+        public ICollection<Steps> Steps { get; set; } = new List<Steps>(); 
+        public ICollection<Ingredient> Ingredients { get; set; } = new List<Ingredient>(); 
 
 
     }
