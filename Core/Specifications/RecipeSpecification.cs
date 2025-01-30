@@ -9,13 +9,16 @@ namespace Core.Specifications
 {
     public class RecipeSpecification : BaseSpecification<Recipe>
     {
-        public RecipeSpecification(string? cuisine, string? mealtype, string? difficulty, string? sort) : base(x =>
-            (string.IsNullOrWhiteSpace(cuisine) || x.Cuisine == cuisine) &&
-            (string.IsNullOrWhiteSpace(mealtype) || x.MealType == mealtype) &&
-            (string.IsNullOrWhiteSpace(difficulty) || x.Difficulty == difficulty)
+        public RecipeSpecification(RecipeSpecParameter specParams) : base(x =>
+            (string.IsNullOrEmpty(specParams.Search) || x.Title.Contains(specParams.Search)) &&
+            (specParams.Cuisines.Count == 0 || specParams.Cuisines.Contains(x.Cuisine)) &&
+            (specParams.MealTypes.Count == 0 || specParams.MealTypes.Contains(x.MealType)) &&
+            (specParams.Difficulties.Count == 0 || specParams.Difficulties.Contains(x.Difficulty))
         )
         {
-            switch (sort)
+            ApplyPaging(specParams.PageSize * (specParams.PageIndex - 1), specParams.PageSize);
+
+            switch (specParams.Sort)
             {
                 case "calAsc":
                     AddOrderBy(x => x.Calories); break;

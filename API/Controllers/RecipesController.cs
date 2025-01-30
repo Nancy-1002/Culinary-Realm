@@ -4,22 +4,21 @@ using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using Core.Interfaces;
 using Core.Specifications;
+using API.RequestHelpers;
 
 namespace API.Controllers
 {
-    [ApiController]
-    [Route("api/[controller]")]
-    public class RecipesController(IGenericRepository<Recipe> repo, RecipeContext context) : ControllerBase
+    
+    public class RecipesController(IGenericRepository<Recipe> repo, RecipeContext context) : BaseApiController
     {
-        
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Recipe>>> GetRecipes(string? cuisine, string? mealtype,
-            string? difficulty, string? sort)
+        public async Task<ActionResult<IEnumerable<Recipe>>> GetRecipes(
+            [FromQuery]RecipeSpecParameter specParams)
         {
-            var spec = new RecipeSpecification(cuisine, mealtype, difficulty, sort);
+            var spec = new RecipeSpecification(specParams);
 
-            var recipes = await repo.ListAsync(spec);
-            return Ok(recipes);
+            
+            return await CreatePagedResult(repo, spec, specParams.PageIndex, specParams.PageSize);
         }
 
         [HttpGet("{id:int}")]

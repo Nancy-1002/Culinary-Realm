@@ -226,22 +226,37 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "cuisine",
+        "Name": "PageIndex",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "PageSize",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Cuisines",
+        "Type": "System.Collections.Generic.List\u00601[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "MealTypes",
+        "Type": "System.Collections.Generic.List\u00601[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "Difficulties",
+        "Type": "System.Collections.Generic.List\u00601[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "Sort",
         "Type": "System.String",
         "IsRequired": false
       },
       {
-        "Name": "mealtype",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "difficulty",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "sort",
+        "Name": "Search",
         "Type": "System.String",
         "IsRequired": false
       }
