@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\HP\\source\\repos\\CulinaryRealm\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{F3C6AE10-72E0-4CD9-8182-A8C024030D78}|Solution Items{F3C6AE10-72E0-4CD9-8182-A8C024030D78}|C:\\Users\\HP\\source\\repos\\CulinaryRealm\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{F3C6AE10-72E0-4CD9-8182-A8C024030D78}|Solution Items{F3C6AE10-72E0-4CD9-8182-A8C024030D78}|solutionrelative:.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{93C37878-48DE-49D1-B4F1-A6D850DC3771}|Infrastructure\\Infrastructure.csproj|c:\\users\\hp\\source\\repos\\culinaryrealm\\infrastructure\\data\\seeddata\\deliverydata.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{93C37878-48DE-49D1-B4F1-A6D850DC3771}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\data\\seeddata\\deliverydata.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
@@ -53,11 +57,28 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": ".gitignore",
+              "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\CulinaryRealm\\.gitignore",
+              "RelativeDocumentMoniker": ".gitignore",
+              "ToolTip": "C:\\Users\\HP\\source\\repos\\CulinaryRealm\\.gitignore",
+              "RelativeToolTip": ".gitignore",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-03-03T05:48:58.539Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "deliveryData.json",
               "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\CulinaryRealm\\Infrastructure\\Data\\SeedData\\deliveryData.json",
               "RelativeDocumentMoniker": "Infrastructure\\Data\\SeedData\\deliveryData.json",
@@ -70,7 +91,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "RecipeContextSeed.cs",
               "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\CulinaryRealm\\Infrastructure\\Data\\RecipeContextSeed.cs",
               "RelativeDocumentMoniker": "Infrastructure\\Data\\RecipeContextSeed.cs",
@@ -78,12 +99,11 @@
               "RelativeToolTip": "Infrastructure\\Data\\RecipeContextSeed.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-28T09:49:29.714Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-28T09:49:29.714Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "RecipeContext.cs",
               "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\CulinaryRealm\\Infrastructure\\Data\\RecipeContext.cs",
               "RelativeDocumentMoniker": "Infrastructure\\Data\\RecipeContext.cs",
@@ -91,16 +111,11 @@
               "RelativeToolTip": "Infrastructure\\Data\\RecipeContext.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-28T09:41:14.731Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+              "WhenOpened": "2025-02-28T09:41:14.731Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "DeliveryMethodConfiguration.cs",
               "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\CulinaryRealm\\Infrastructure\\Config\\DeliveryMethodConfiguration.cs",
               "RelativeDocumentMoniker": "Infrastructure\\Config\\DeliveryMethodConfiguration.cs",
@@ -108,12 +123,11 @@
               "RelativeToolTip": "Infrastructure\\Config\\DeliveryMethodConfiguration.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-28T07:54:24.907Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-28T07:54:24.907Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "AccountController.cs",
               "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\CulinaryRealm\\API\\Controllers\\AccountController.cs",
               "RelativeDocumentMoniker": "API\\Controllers\\AccountController.cs",
@@ -121,12 +135,11 @@
               "RelativeToolTip": "API\\Controllers\\AccountController.cs",
               "ViewState": "AgIAACcAAAAAAAAAAADwvzMAAABXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-27T10:56:16.891Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-27T10:56:16.891Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "DeliveryMethod.cs",
               "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\CulinaryRealm\\Core\\Entities\\DeliveryMethod.cs",
               "RelativeDocumentMoniker": "Core\\Entities\\DeliveryMethod.cs",
@@ -134,12 +147,11 @@
               "RelativeToolTip": "Core\\Entities\\DeliveryMethod.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-28T07:49:27.789Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-28T07:49:27.789Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "API",
               "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\CulinaryRealm\\API\\API.csproj",
               "RelativeDocumentMoniker": "API\\API.csproj",
@@ -150,7 +162,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\CulinaryRealm\\API\\appsettings.json",
               "RelativeDocumentMoniker": "API\\appsettings.json",
@@ -162,7 +174,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\CulinaryRealm\\API\\Program.cs",
               "RelativeDocumentMoniker": "API\\Program.cs",
@@ -174,7 +186,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "launchSettings.json",
               "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\CulinaryRealm\\API\\Properties\\launchSettings.json",
               "RelativeDocumentMoniker": "API\\Properties\\launchSettings.json",
@@ -186,7 +198,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "Monitor.cs",
               "DocumentMoniker": "C:\\Users\\HP\\AppData\\Local\\Temp\\.vsdbgsrc\\0863f89bb68d2be6d93d1163fd76c784888037607d096ed4d1121f4c1eb1c74c\\Monitor.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\AppData\\Local\\Temp\\.vsdbgsrc\\0863f89bb68d2be6d93d1163fd76c784888037607d096ed4d1121f4c1eb1c74c\\Monitor.cs",
