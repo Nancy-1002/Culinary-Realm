@@ -5,6 +5,7 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace Core.Entities
 {
     public class Recipe : BaseEntity

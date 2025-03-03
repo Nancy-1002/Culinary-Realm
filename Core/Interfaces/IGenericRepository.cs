@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -15,6 +16,7 @@ namespace Core.Interfaces
         Task<IReadOnlyList<T>> ListAsync(ISpecification<T> spec);
         Task<TResult?> GetEntityWithSpec<TResult>(ISpecification<T, TResult> spec);
         Task<IReadOnlyList<TResult>> ListAsync<TResult>(ISpecification<T, TResult> spec);
+        Task<T?> GetByConditionAsync(Expression<Func<T, bool>> predicate);
 
         void Add(T entity);
         void Update(T entity);

@@ -8,13 +8,17 @@ namespace API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class ProductsController(IGenericRepository<Product> repo, IGenericRepository<Ingredient> ingRepo) : ControllerBase
+    public class ProductsController(IGenericRepository<Product> repo, IGenericRepository<Ingredient> ingRepo) : BaseApiController
     {
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Product>>> GetProducts()
+        public async Task<ActionResult<IEnumerable<Product>>> GetProducts(
+            [FromQuery]ProductSpecParameter specParams)
         {
-            return Ok(await repo.ListAllAsync());
+            var spec = new ProductSpecification(specParams);
+
+
+            return await CreatePagedResult(repo,spec, specParams.PageIndex, specParams.PageSize);
         }
 
         [HttpGet("{id:int}")]

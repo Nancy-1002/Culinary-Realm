@@ -31,25 +31,37 @@ namespace Core.Specifications
         }
     
 
-        private List<string> _mealtypes = [];
+        private List<string> _mealTypes = [];
 
         public List<string> MealTypes
         {
-            get => _mealtypes;
+            get => _mealTypes;
             set
             {
-                _mealtypes = value.SelectMany(x => x.Split(',', StringSplitOptions.RemoveEmptyEntries)).ToList();
+                _mealTypes = value.SelectMany(x => x.Split(',', StringSplitOptions.RemoveEmptyEntries)).ToList();
             }
         }
 
-        private List<string> _difficulties = [];
+        private List<string> _difficulty = [];
 
-        public List<string> Difficulties
+        public List<string> difficulty
         {
-            get => _difficulties;
+            get => _difficulty;
             set
             {
-                _difficulties = value.SelectMany(x => x.Split(',', StringSplitOptions.RemoveEmptyEntries)).ToList();
+                if (value.Count == 1 && value[0].Contains(","))
+                {
+                    Console.WriteLine($"Received Difficulty: {string.Join(", ", value)}"); // Debugging
+
+                    // Ensure it properly splits values
+                    _difficulty = value.SelectMany(x => x.Split(',', StringSplitOptions.RemoveEmptyEntries)).ToList();
+
+                    Console.WriteLine($"Processed Difficulty: {string.Join(", ", _difficulty)}"); // Debugging
+                }
+                else
+                {
+                    _difficulty = value;
+                }
             }
         }
 

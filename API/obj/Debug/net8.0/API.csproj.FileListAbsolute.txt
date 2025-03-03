@@ -178,3 +178,5 @@ C:\Users\HP\source\repos\CulinaryRealm\API\obj\Debug\net8.0\API.pdb
 C:\Users\HP\source\repos\CulinaryRealm\API\obj\Debug\net8.0\API.genruntimeconfig.cache
 C:\Users\HP\source\repos\CulinaryRealm\API\obj\Debug\net8.0\ref\API.dll
 C:\Users\HP\source\repos\CulinaryRealm\API\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+C:\Users\HP\source\repos\CulinaryRealm\API\bin\Debug\net8.0\Pipelines.Sockets.Unofficial.dll
+C:\Users\HP\source\repos\CulinaryRealm\API\bin\Debug\net8.0\StackExchange.Redis.dll

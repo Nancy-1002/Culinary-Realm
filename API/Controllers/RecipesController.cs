@@ -5,10 +5,11 @@ using Microsoft.EntityFrameworkCore;
 using Core.Interfaces;
 using Core.Specifications;
 using API.RequestHelpers;
+using Microsoft.AspNetCore.Cors;
 
 namespace API.Controllers
 {
-    
+    [EnableCors("CorsPolicy")]
     public class RecipesController(IGenericRepository<Recipe> repo, RecipeContext context) : BaseApiController
     {
         [HttpGet]

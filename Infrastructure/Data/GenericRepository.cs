@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -29,6 +30,10 @@ namespace Infrastructure.Data
             return context.Set<T>().Any(x => x.Id == id);
         }
 
+        public async Task<T?> GetByConditionAsync(Expression<Func<T, bool>> predicate)
+        {
+            return await context.Set<T>().FirstOrDefaultAsync(predicate);
+        }
         public async Task<T?> GetByIdAsync(int id)
         {
             return await context.Set<T>().FindAsync(id);

@@ -9,9 +9,9 @@ namespace API.DTOs
         public  string Title { get; set; } = string.Empty;
         [Required]
         public string Description { get; set; } = string.Empty;
-
+        [Required]
         public TimeSpan TotalTime { get; set; }
-
+        [Required]
         public int Calories { get; set; }
         [Range(1, int.MaxValue, ErrorMessage = "Servings must be greater than 0")]
         public int Serves { get; set; }

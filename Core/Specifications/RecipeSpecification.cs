@@ -13,19 +13,21 @@ namespace Core.Specifications
             (string.IsNullOrEmpty(specParams.Search) || x.Title.Contains(specParams.Search)) &&
             (specParams.Cuisines.Count == 0 || specParams.Cuisines.Contains(x.Cuisine)) &&
             (specParams.MealTypes.Count == 0 || specParams.MealTypes.Contains(x.MealType)) &&
-            (specParams.Difficulties.Count == 0 || specParams.Difficulties.Contains(x.Difficulty))
+            (specParams.difficulty.Count == 0 || specParams.difficulty.Contains(x.Difficulty))
         )
         {
             ApplyPaging(specParams.PageSize * (specParams.PageIndex - 1), specParams.PageSize);
-
             switch (specParams.Sort)
             {
                 case "calAsc":
-                    AddOrderBy(x => x.Calories); break;
+                    AddOrderBy(x => x.Calories);
+                    break;
                 case "calDesc":
-                    AddOrderByDesc(x => x.Calories); break;
+                    AddOrderByDesc(x => x.Calories);
+                    break;
                 default:
-                    AddOrderBy(x=> x.Title); break;
+                    AddOrderBy(x => x.Title);
+                    break;
             }
         }
     }
