@@ -178,3 +178,4 @@ C:\Users\HP\source\repos\CulinaryRealm\APi\obj\Debug\net9.0\refint\API.dll
 C:\Users\HP\source\repos\CulinaryRealm\APi\obj\Debug\net9.0\API.pdb
 C:\Users\HP\source\repos\CulinaryRealm\APi\obj\Debug\net9.0\API.genruntimeconfig.cache
 C:\Users\HP\source\repos\CulinaryRealm\APi\obj\Debug\net9.0\ref\API.dll
+C:\Users\HP\source\repos\CulinaryRealm\API\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
