@@ -8,18 +8,18 @@ namespace API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class StepsController(IGenericRepository<Steps> repo, IGenericRepository<Recipe> recipeRepository) : ControllerBase
+    public class StepsController(IUnitOfWork unit) : ControllerBase
     {
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Steps>>> GetSteps()
         {
-            return Ok(await repo.ListAllAsync());
+            return Ok(await unit.Repository<Steps>().ListAllAsync());
         }
 
         [HttpGet("{id:int}")]
         public async Task<ActionResult<Steps>> GetStepById(int id)
         {
-            var step = await repo.GetByIdAsync(id);
+            var step = await unit.Repository<Steps>().GetByIdAsync(id);
 
             if (step == null)
             {
@@ -31,7 +31,7 @@ namespace API.Controllers
         [HttpPost("create")]
         public async Task<ActionResult<Steps>> CreateStep(Steps st)
         {
-            var recipe = await recipeRepository.GetByIdAsync(st.RecipeId);
+            var recipe = await unit.Repository<Recipe>().GetByIdAsync(st.RecipeId);
 
             if (recipe == null)
                 return NotFound($"Recipe with id {st.RecipeId} not found");
@@ -41,9 +41,9 @@ namespace API.Controllers
                 RecipeId = st.RecipeId,
                 Description = st.Description
             };
-            repo.Add(step);
+            unit.Repository<Steps>().Add(step);
 
-            if (await repo.SaveAllAsync())
+            if (await unit.Complete())
             {
                 return CreatedAtAction("GetStepById", new { id = step.Id }, step);
             }
@@ -58,8 +58,8 @@ namespace API.Controllers
             {
                 return BadRequest("Cannot update this step");
             }
-            repo.Update(step);
-            if (await repo.SaveAllAsync())
+            unit.Repository<Steps>().Update(step);
+            if (await unit.Complete())
             {
                 return NoContent();
             }
@@ -70,11 +70,11 @@ namespace API.Controllers
         [HttpDelete("{id:int}")]
         public async Task<ActionResult> DeleteStep(int id)
         {
-            var step = await repo.GetByIdAsync(id);
+            var step = await unit.Repository<Steps>().GetByIdAsync(id);
             if (step == null) return NotFound();
 
-            repo.Remove(step);
-            if (await repo.SaveAllAsync())
+            unit.Repository<Steps>().Remove(step);
+            if (await unit.Complete())
             {
                 return NoContent();
             }
@@ -84,7 +84,7 @@ namespace API.Controllers
         
         private bool StepExists(int id)
         {
-            return repo.Exists(id);
+            return unit.Repository<Steps>().Exists(id);
         }
     }
 }

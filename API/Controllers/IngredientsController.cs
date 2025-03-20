@@ -5,23 +5,24 @@ using Microsoft.EntityFrameworkCore;
 using Core.Interfaces;
 using Core.Specifications;
 using System.Net.NetworkInformation;
+using StackExchange.Redis;
 namespace API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class IngredientsController(IGenericRepository<Ingredient> repo, IGenericRepository<Recipe> recipeRepo) : ControllerBase
+    public class IngredientsController(IUnitOfWork unit) : ControllerBase
     {
 
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Ingredient>>> GetIngredients()
         {
-            return Ok(await repo.ListAllAsync());
+            return Ok(await unit.Repository<Ingredient>().ListAllAsync());
         }
 
         [HttpGet("{id:int}")]
         public async Task<ActionResult<Ingredient>> GetIngredientById(int id)
         {
-            var ing = await repo.GetByIdAsync(id);
+            var ing = await unit.Repository<Ingredient>().GetByIdAsync(id);
 
             if (ing == null)
             {
@@ -33,7 +34,7 @@ namespace API.Controllers
         [HttpPost]
         public async Task<ActionResult<Ingredient>> CreateIngredient(Ingredient ing)
         {
-            var recipe = await recipeRepo.GetByIdAsync(ing.RecipeId);
+            var recipe = await unit.Repository<Recipe>().GetByIdAsync(ing.RecipeId);
 
             if (recipe == null)
             {
@@ -45,9 +46,9 @@ namespace API.Controllers
                 RecipeId = ing.RecipeId,
                 Name = ing.Name
             };
-            repo.Add(ingredients);
+            unit.Repository<Ingredient>().Add(ingredients);
 
-            if (await repo.SaveAllAsync())
+            if (await unit.Complete())
             {
                 return CreatedAtAction("GetIngredientById", new { id = ing.Id }, ing);
             }
@@ -63,8 +64,8 @@ namespace API.Controllers
             {
                 return BadRequest("Cannot update this ingredient");
             }
-            repo.Update(ing);
-            if (await repo.SaveAllAsync())
+            unit.Repository<Ingredient>().Update(ing);
+            if (await unit.Complete())
             {
                 return NoContent();
             }
@@ -75,11 +76,11 @@ namespace API.Controllers
         [HttpDelete("{id:int}")]
         public async Task<ActionResult> DeleteIngredient(int id)
         {
-            var ing = await repo.GetByIdAsync(id);
+            var ing = await unit.Repository<Ingredient>().GetByIdAsync(id);
             if (ing == null) return NotFound();
 
-            repo.Remove(ing);
-            if (await repo.SaveAllAsync())
+            unit.Repository<Ingredient>().Remove(ing);
+            if (await unit.Complete())
             {
                 return NoContent();
             }
@@ -89,7 +90,7 @@ namespace API.Controllers
 
         private bool IngredientExists(int id)
         {
-            return repo.Exists(id);
+            return unit.Repository<Ingredient>().Exists(id);
         }
     }
 }

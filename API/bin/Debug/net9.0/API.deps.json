@@ -868,6 +868,17 @@
           }
         }
       },
+      "RazorPay.Core/1.0.2": {
+        "dependencies": {
+          "Newtonsoft.Json": "13.0.3"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/RazorPay Core.dll": {
+            "assemblyVersion": "1.0.0.2",
+            "fileVersion": "1.0.0.2"
+          }
+        }
+      },
       "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.2": {},
       "runtime.fedora.23-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.2": {},
       "runtime.fedora.24-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.2": {},
@@ -1539,6 +1550,7 @@
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "9.0.2",
           "Microsoft.EntityFrameworkCore.SqlServer": "9.0.0",
           "MongoDB.Driver": "3.1.0",
+          "RazorPay.Core": "1.0.2",
           "StackExchange.Redis": "2.8.24"
         },
         "runtime": {
@@ -1947,6 +1959,13 @@
       "sha512": "sha512-zG2FApP5zxSx6OcdJQLbZDk2AVlN2BNQD6MorwIfV6gVj0RRxWPEp2LXAxqDGZqeNV1Zp0BNPcNaey/GXmTdvQ==",
       "path": "pipelines.sockets.unofficial/2.2.8",
       "hashPath": "pipelines.sockets.unofficial.2.2.8.nupkg.sha512"
+    },
+    "RazorPay.Core/1.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-vRyVsundeyWrQT7L4IyCHilcEwNpibm78vVp3HD3xpuFWhjlZ7wMxDOUdxcjgdeJWbXa52DSTG7OyH2LUuE0lA==",
+      "path": "razorpay.core/1.0.2",
+      "hashPath": "razorpay.core.1.0.2.nupkg.sha512"
     },
     "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.2": {
       "type": "package",

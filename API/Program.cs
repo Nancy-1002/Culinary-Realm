@@ -7,8 +7,13 @@ using Microsoft.EntityFrameworkCore;
 using StackExchange.Redis;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Razorpay.Api;
+using Microsoft.Extensions.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
+
+
+var configuration = builder.Configuration;
 
 builder.Services.AddControllers()
     .AddJsonOptions(options =>
@@ -44,14 +49,21 @@ builder.Services.AddSingleton<IConnectionMultiplexer>(config =>
     var configuration = ConfigurationOptions.Parse(connString, true);
     return ConnectionMultiplexer.Connect(configuration);
 });
-
+builder.Services.AddSingleton<RazorpayClient>(sp =>
+{
+    var key = configuration["RazorPaySettings:PublishableKey"];
+    var secret = configuration["RazorPaySettings:SecretKey"];
+    return new RazorpayClient(key, secret);
+});
 builder.Services.AddSingleton<ICartService, CartService>();
 builder.Services.AddAuthorization();
 builder.Services.AddIdentityApiEndpoints<AppUser>()
     .AddEntityFrameworkStores<RecipeContext>();
+builder.Services.AddScoped<IPaymentService, PaymentService>();
 
 builder.Services.AddScoped<IRecipeRepository, RecipeRepository>();
 builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 var app = builder.Build();
 

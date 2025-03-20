@@ -6,18 +6,18 @@ namespace API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class IngredientProductController(IGenericRepository<IngredientProduct> ingProRepo, IGenericRepository<Ingredient> ingRepo, IGenericRepository<Product> proRepo) : ControllerBase
+    public class IngredientProductController(IUnitOfWork unit) : ControllerBase
     {
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Ingredient>>> GetIngredientProduct()
         {
-            return Ok(await ingProRepo.ListAllAsync());
+            return Ok(await unit.Repository<IngredientProduct>().ListAllAsync());
         }
 
         [HttpGet("{ingId}")]
         public async Task<ActionResult<IngredientProduct>> GetIngredientProductById(int ingId)
         {
-            var ingPro = await ingProRepo.GetByConditionAsync(ip => ip.IngredientId == ingId);
+            var ingPro = await unit.Repository<IngredientProduct>().GetByConditionAsync(ip => ip.IngredientId == ingId);
 
             if (ingPro == null)
             {
@@ -31,8 +31,8 @@ namespace API.Controllers
         [HttpPost]
         public async Task<ActionResult<IngredientProduct>> CreateIngredientProduct(IngredientProduct ingPro)
         {
-            var ing = await ingRepo.GetByIdAsync(ingPro.IngredientId);
-            var pro = await proRepo.GetByIdAsync(ingPro.ProductId);
+            var ing = await unit.Repository<Ingredient>().GetByIdAsync(ingPro.IngredientId);
+            var pro = await unit.Repository<Product>().GetByIdAsync(ingPro.ProductId);
 
             if (ing == null || pro == null)
             {
@@ -44,10 +44,10 @@ namespace API.Controllers
                 IngredientId = ingPro.IngredientId,
                 ProductId = ingPro.ProductId
             };
-            
-            ingProRepo.Add(ingredientProduct);
 
-            if (await ingProRepo.SaveAllAsync())
+            unit.Repository<IngredientProduct>().Add(ingredientProduct);
+
+            if (await unit.Complete())
             {
                 return CreatedAtAction("GetIngredientProductById", new { id = ingPro.Id }, ingPro);
             }
@@ -63,8 +63,8 @@ namespace API.Controllers
             {
                 return BadRequest("Cannot update this ingredient");
             }
-            ingProRepo.Update(ingPro);
-            if (await ingProRepo.SaveAllAsync())
+            unit.Repository<IngredientProduct>().Update(ingPro);
+            if (await unit.Complete())
             {
                 return NoContent();
             }
@@ -75,11 +75,11 @@ namespace API.Controllers
         [HttpDelete("{id:int}")]
         public async Task<ActionResult> DeleteIngredientProduct(int id)
         {
-            var ingPro = await ingProRepo.GetByIdAsync(id);
+            var ingPro = await unit.Repository<IngredientProduct>().GetByIdAsync(id);
             if (ingPro == null) return NotFound();
 
-            ingProRepo.Remove(ingPro);
-            if (await ingProRepo.SaveAllAsync())
+            unit.Repository<IngredientProduct>().Remove(ingPro);
+            if (await unit.Complete())
             {
                 return NoContent();
             }
@@ -89,7 +89,7 @@ namespace API.Controllers
 
         private bool IngredientProductExists(int id)
         {
-            return ingProRepo.Exists(id);
+            return unit.Repository<IngredientProduct>().Exists(id);
         }
     }
 }

@@ -4,9 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Core.Entities
+namespace Core.Entities.OrderAggregate
 {
-    internal class User
+    public enum OrderStatus
     {
+        Pending,
+        PaymentRecevied,
+        PaymentFailed
     }
 }

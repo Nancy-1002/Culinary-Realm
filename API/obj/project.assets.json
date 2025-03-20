@@ -1182,6 +1182,18 @@
           }
         }
       },
+      "RazorPay.Core/1.0.2": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "12.0.3"
+        },
+        "compile": {
+          "lib/netcoreapp3.1/RazorPay Core.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/RazorPay Core.dll": {}
+        }
+      },
       "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.2": {
         "type": "package",
         "runtimeTargets": {
@@ -2609,6 +2621,7 @@
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "9.0.2",
           "Microsoft.EntityFrameworkCore.SqlServer": "9.0.0",
           "MongoDB.Driver": "3.1.0",
+          "RazorPay.Core": "1.0.2",
           "StackExchange.Redis": "2.8.24"
         },
         "compile": {
@@ -4777,6 +4790,19 @@
         "lib/netstandard2.1/Pipelines.Sockets.Unofficial.xml",
         "pipelines.sockets.unofficial.2.2.8.nupkg.sha512",
         "pipelines.sockets.unofficial.nuspec"
+      ]
+    },
+    "RazorPay.Core/1.0.2": {
+      "sha512": "vRyVsundeyWrQT7L4IyCHilcEwNpibm78vVp3HD3xpuFWhjlZ7wMxDOUdxcjgdeJWbXa52DSTG7OyH2LUuE0lA==",
+      "type": "package",
+      "path": "razorpay.core/1.0.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "icon.png",
+        "lib/netcoreapp3.1/RazorPay Core.dll",
+        "razorpay.core.1.0.2.nupkg.sha512",
+        "razorpay.core.nuspec"
       ]
     },
     "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.2": {
