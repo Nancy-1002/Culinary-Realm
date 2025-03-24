@@ -2,11 +2,13 @@
 using Core.Entities;
 using Core.Interfaces;
 using Microsoft.Extensions.Configuration;
+using Newtonsoft.Json.Linq;
 using Razorpay.Api;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+
 
 namespace Infrastructure.Services
 {
@@ -75,5 +77,36 @@ namespace Infrastructure.Services
                 return null;
             }
         }
+        public CardDetails? GetCardDetails(string razorpayPaymentId)
+        {
+            try
+            {
+                var payment = razorpayClient.Payment.Fetch(razorpayPaymentId);
+
+                var card = payment["card"] as JObject;
+                var acquirerData = payment["acquirer_data"] as JObject;
+
+                if (card == null || acquirerData == null) return null;
+
+                var cardDetails = new CardDetails
+                {
+                    CardId = card.ContainsKey("id") ? card["id"]?.ToString() : null,
+                    Last4 = card.ContainsKey("last4") ? card["last4"]?.ToString() : null,
+                    CardType = card.ContainsKey("network") ? card["network"]?.ToString() : null,
+                    NameOnCard = card.ContainsKey("name") ? card["name"]?.ToString() : "--",
+                    AuthCode = acquirerData.ContainsKey("auth_code") ? acquirerData["auth_code"]?.ToString() : ""
+                };
+
+
+                return cardDetails;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error fetching card details: {ex.Message}");
+                return null;
+            }
+        }
+
+
     }
 }

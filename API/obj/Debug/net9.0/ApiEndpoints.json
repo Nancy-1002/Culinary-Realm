@@ -721,6 +721,32 @@
   },
   {
     "ContainingType": "API.Controllers.PaymentsController",
+    "Method": "GetCardDetails",
+    "RelativePath": "api/Payments/card-details/{paymentId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "paymentId",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Core.Entities.CardDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "API.Controllers.PaymentsController",
     "Method": "GetDeliveryMethods",
     "RelativePath": "api/Payments/deliveryMethods",
     "HttpMethod": "GET",
@@ -738,6 +764,32 @@
         "StatusCode": 200
       }
     ]
+  },
+  {
+    "ContainingType": "API.Controllers.PaymentsController",
+    "Method": "VerifyPayment",
+    "RelativePath": "api/Payments/verify",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "paymentResponse",
+        "Type": "Core.Entities.RazorpayPaymentResponse",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.PaymentsController",
+    "Method": "RazorpayWebhook",
+    "RelativePath": "api/Payments/webhook",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
   },
   {
     "ContainingType": "API.Controllers.ProductsController",

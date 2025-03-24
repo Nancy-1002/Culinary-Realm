@@ -60,7 +60,8 @@ namespace API.Controllers
                 Subtotal = items.Sum(x => x.Price * x.Quantity),
                 PaymentSummary = orderDto.PaymentSummary,
                 PaymentIntentId = cart.PaymentIntentId,
-                BuyerEmail = email
+                BuyerEmail = email,
+                Status = OrderStatus.PaymentRecevied
             };
             unit.Repository<Order>().Add(order);
 

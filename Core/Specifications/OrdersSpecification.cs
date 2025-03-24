@@ -16,11 +16,17 @@ namespace Core.Specifications
             AddOrderByDesc(x => x.OrderDate);
         }
 
-        public OrdersSpecification(string email, int id): base(o => o.Id == id && o.BuyerEmail == email)
+        public OrdersSpecification(string email, int id) : base(o => o.Id == id && o.BuyerEmail == email)
         {
             AddInclude("OrderItems");
             AddInclude("DeliveryMethod");
 
+        }
+        public OrdersSpecification(string paymentIntentId, bool isPaymentIntent): 
+            base(o => o.PaymentIntentId == paymentIntentId )
+        {
+            AddInclude("OrderItems");
+            AddInclude("DeliveryMethod");
         }
     }
 }
