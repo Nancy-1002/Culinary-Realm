@@ -24,8 +24,7 @@ namespace Core.Entities
         public required string MealType {  get; set; }
 
         public ICollection<Steps> Steps { get; set; } = new List<Steps>(); 
-        public ICollection<Ingredient> Ingredients { get; set; } = new List<Ingredient>(); 
-
-
+        public ICollection<Ingredient> Ingredients { get; set; } = new List<Ingredient>();
+        public ICollection<UserFavoriteRecipe> FavoritedByUser { get; set; } = new List<UserFavoriteRecipe>();
     }
 }

@@ -13,6 +13,7 @@ namespace Core.Entities
         public string? LastName { get; set; }
 
         public Address? Address { get; set; }
+        public ICollection<UserFavoriteRecipe> FavoriteRecipes { get; set; } = new List<UserFavoriteRecipe>();
 
     }
 }
