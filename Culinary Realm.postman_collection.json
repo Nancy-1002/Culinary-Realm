@@ -1,0 +1,1495 @@
+{
+	"info": {
+		"_postman_id": "9bcaaea4-aec9-4ed9-8ada-15016dc0e5b4",
+		"name": "Culinary Realm",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32005395"
+	},
+	"item": [
+		{
+			"name": "Recipe",
+			"item": [
+				{
+					"name": "Add new recipe",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Title\": \"Christmas Cracker Wonton\",\r\n    \"Description\":\"Filled with a flavorful veggie slaw, these wontons are both vegan-friendly and endlessly versatile. Swap the filling to suit your preferences—whether it’s a savory cheese blend, paneer, or even a tofu filling!\",\r\n    \"TotalTime\":\"01:30:00\",\r\n    \"Calories\": 1386,\r\n    \"Serves\":5,\r\n    \"Difficulty\":\"Medium\",\r\n    \"ImageUrl\":\"https://res.cloudinary.com/dbwntzehh/image/upload/v1738667845/Culinary%20Realm/Images/IMG_4331_c6nwwi.jpg\",\r\n    \"VideoUrl\":\"https://res.cloudinary.com/dbwntzehh/video/upload/v1737547634/Culinary%20Realm/Videos/CUTEST_way_to_serve_wontons_during_christmas_are_these_Christmas_Cracker_wontons_food_qtan4n.mp4\",\r\n    \"Cuisine\":\"Chinese\",\r\n    \"MealType\":\"Snack\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/recipes",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"recipes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get recipes",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/recipes",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"recipes"
+							],
+							"query": [
+								{
+									"key": "sort",
+									"value": "calAsc",
+									"disabled": true
+								},
+								{
+									"key": "cuisines",
+									"value": "Indian",
+									"disabled": true
+								},
+								{
+									"key": "difficulty",
+									"value": "Easy",
+									"disabled": true
+								},
+								{
+									"key": "mealTypes",
+									"value": "Dip",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get recipe by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/recipes/7",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"recipes",
+								"7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete a recipe",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/recipes/7",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"recipes",
+								"7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update a recipe",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Id\":3,\r\n    \r\n    \"Title\": \"Aloo Chatree\",\r\n    \"Description\":\"Crisp crackers serve as the base, while spiced potatoes, tamarind chutney, fresh coriander, crunchy sev, and juicy pomegranate seeds create a stunning and delicious bite.\",\r\n    \"TotalTime\":\"00:25:00\",\r\n    \"Calories\": 1389,\r\n    \"Serves\":5,\r\n    \"Difficulty\":\"Easy\",\r\n    \"ImageUrl\":\"https://res.cloudinary.com/dbwntzehh/image/upload/v1737549582/Culinary%20Realm/IMG_4596_g13kio.jpg\",\r\n    \"VideoUrl\":\"https://res.cloudinary.com/dbwntzehh/video/upload/v1737547675/Culinary%20Realm/The_cutest_way_to_serve_chaat_this_Christmas_ALOO_CHAAT_TREES_food_p87fjj.mp4\",\r\n    \"Cuisine\":\"Indian\",\r\n    \"MealType\":\"Snack\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/recipes/3",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"recipes",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list of cuisines",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/recipes/cuisines",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"recipes",
+								"cuisines"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list of meal types",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/recipes/mealtypes",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"recipes",
+								"mealtypes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list of difficulties",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/recipes/difficulty",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"recipes",
+								"difficulty"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Steps",
+			"item": [
+				{
+					"name": "get steps",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/steps",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"steps"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add steps",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"RecipeId\" : 6,\r\n    \"Description\" : \"Heat oil till warm around 350-375F. Deep fry at a high temperature till golden brown, flipping over both sides.Serve immediately with a sweet & spicy dipping sauce. \"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/steps/create",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"steps",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get steps by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/steps/2",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"steps",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update step",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\" : 2,\r\n    \"RecipeId\" : 3,\r\n    \"Description\" : \"In a mixing bowl add all the ingredients for the aloo chaat mixture- mashed potatoes, salt, sugar, black salt, chaat masala, cumin powder, red chili powder, onions, coriander chutney, and tamarind chutney. Mix well till combined properly. It should be a light green color.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/steps/2",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"steps",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete step",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/steps/2",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"steps",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "get products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/products",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"products"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "Vegetable",
+									"disabled": true
+								},
+								{
+									"key": "sort",
+									"value": "priceAsc",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add product",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"Wonton Wrapper\",\r\n    \"price\" : 220,\r\n    \"brand\" : \"Nature\",\r\n    \"imgurl\":\"https://res.cloudinary.com/dbwntzehh/image/upload/v1738058338/Culinary%20Realm/Products/wontonwrapper_xzmtkz.jpg\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/products",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get product by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/products/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"products",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update product",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\" :33,\r\n    \"name\" : \"Monaco Biscuit\",\r\n    \"price\" : 90,\r\n    \"brand\":\"Parle\",\r\n    \"imgurl\" : \"https://res.cloudinary.com/dbwntzehh/image/upload/v1738058368/Culinary%20Realm/Products/monaco_k8dt2w.jpg\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/products/33",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"products",
+								"33"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete product",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/products/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"products",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Ingredients",
+			"item": [
+				{
+					"name": "get ingredients",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/ingredients",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"ingredients"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add ingredients",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"recipeId\":6,\r\n    \"name\":\"Oil to deep fry\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/ingredients",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"ingredients"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get ingredients by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/ingredients/79",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"ingredients",
+								"79"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update ingredient",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":78,\r\n    \"recipeId\":4,\r\n    \"name\":\"Oil to deep fry\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/ingredients/78",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"ingredients",
+								"78"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete ingredient",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/ingredients/78",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"ingredients",
+								"78"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Paging and sorting",
+			"item": [
+				{
+					"name": "get recipe by multiple cuisines, mealtypes and difficulties",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/recipes?cuisines=Mexican,Italian&mealtype=Dip&difficulty=Easy",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"recipes"
+							],
+							"query": [
+								{
+									"key": "cuisines",
+									"value": "Mexican,Italian"
+								},
+								{
+									"key": "mealtype",
+									"value": "Dip"
+								},
+								{
+									"key": "difficulty",
+									"value": "Easy"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get paged recipes page 0 size 5",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/recipes?pageSize=3&pageIndex=1&cuisines=Indian",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"recipes"
+							],
+							"query": [
+								{
+									"key": "pageSize",
+									"value": "3"
+								},
+								{
+									"key": "pageIndex",
+									"value": "1"
+								},
+								{
+									"key": "cuisines",
+									"value": "Indian"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "search functionality",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/recipes?search=lemon",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"recipes"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "lemon"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Error handling",
+			"item": [
+				{
+					"name": "get not found",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/buggy/notfound",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"buggy",
+								"notfound"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get validation error",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/buggy/validationerror",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"buggy",
+								"validationerror"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get bad request",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/buggy/badrequest",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"buggy",
+								"badrequest"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get unauthorized",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/buggy/unauthorized",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"buggy",
+								"unauthorized"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get internal error",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/buggy/internalerror",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"buggy",
+								"internalerror"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "check cors is enabled",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"CORS header is present\", function(){\r",
+									"    pm.response.to.have.header(\"Access-Control-Allow-Origin\");\r",
+									"    pm.expect(pm.response.headers.get(\"Access-Control-Allow-Origin\")).to.eql(\"https://localhost:4200\");\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Access-Control-Allow-Origin",
+								"value": "*",
+								"type": "text"
+							},
+							{
+								"key": "Access-Control-Request-Headers",
+								"value": "*",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/recipes",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"recipes"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Shopping cart",
+			"item": [
+				{
+					"name": "get cart",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/cart?id=cart1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"cart"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "cart1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update cart",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"cart1\",\r\n    \"items\":[\r\n        {\r\n            \"productName\": \"Sugar\",\r\n            \"price\" : 70,\r\n            \"quantity\":2,\r\n            \"pictureUrl\":\"https://res.cloudinary.com/dbwntzehh/image/upload/v1738058374/Culinary%20Realm/Products/sugar_zeh3sw.jpg\",\r\n            \"brand\":\"Nature\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/cart",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"cart"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete cart",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/cart?id=cart1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"cart"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "cart1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "IngredientProduct",
+			"item": [
+				{
+					"name": "get all IP",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/IngredientProduct",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"IngredientProduct"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get IP by ing id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/IngredientProduct/7",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"IngredientProduct",
+								"7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add new IP",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ingredientId\":3,\r\n    \"productId\":5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/IngredientProduct",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"IngredientProduct"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update an IP",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ingredientId\":3,\r\n    \"productId\":5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/IngredientProduct/3",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"IngredientProduct",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete an IP",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/IngredientProduct/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"IngredientProduct",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Identity (User)",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\" : \"test@gmail.com\",\r\n    \"password\": \"Passwor@D1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/register",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login (param: cookies)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\" : \"test1@gmail.com\",\r\n    \"password\": \"Passwor@D1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/login?useCookies=true",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"login"
+							],
+							"query": [
+								{
+									"key": "useCookies",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "controller register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"test\",\r\n    \"lastName\":\"2\",\r\n    \"email\" : \"test2@gmail.com\",\r\n    \"password\": \"letmein\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/account/register",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"account",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get secret from buggy",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/buggy/secret",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"buggy",
+								"secret"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get current user",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/account/user-info",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"account",
+								"user-info"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logout",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/account/logout",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"account",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add user address",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"line1\" : \"TP-13\",\r\n    \"city\" : \"Vadodara\",\r\n    \"state\" : \"Gujarat\",\r\n    \"zipCode\": \"390002\",\r\n    \"country\": \"India\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/account/address",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"account",
+								"address"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Delivery Methods",
+			"item": [
+				{
+					"name": "Update Cart - add payment intent details",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": \"cart1\",\r\n  \"items\": [\r\n    {\r\n      \"productId\": 1,\r\n      \"productName\": \"Flour\",\r\n      \"price\": 110,\r\n      \"quantity\": 2,\r\n      \"pictureUrl\": \"https://res.cloudinary.com/dbwntzehh/image/upload/v1739340822/Culinary%20Realm/Products/flour_vjebge.jpg\",\r\n      \"brand\": \"Aata ghar\"\r\n    }\r\n  ],\r\n  \"deliveryMethodId\": null,\r\n  \"clientSecret\": \"order_Q5OeA9BE9Y6sEy\",\r\n  \"paymentIntentId\": \"order_Q5OeA9BE9Y6sEy\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/cart",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"cart"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create payment as test 1",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/payments/cart1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"payments",
+								"cart1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Orders",
+			"item": [
+				{
+					"name": "Update Cart",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"cart1\",\r\n    \"items\":[\r\n        {\r\n            \"productId\": 3,\r\n            \"productName\": \"Sugar\",\r\n            \"price\" : 70,\r\n            \"quantity\":2,\r\n            \"pictureUrl\":\"https://res.cloudinary.com/dbwntzehh/image/upload/v1738058374/Culinary%20Realm/Products/sugar_zeh3sw.jpg\",\r\n            \"brand\":\"Nature\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/cart",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"cart"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Payment Intent",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/payments/cart1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"payments",
+								"cart1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Order",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"cartId\":\"cart1\",\r\n    \"deliveryMethodId\": 1,\r\n    \"shippingAddress\":{\r\n        \"name\": \"Test 1\",\r\n        \"line1\" : \"TP-13\",\r\n        \"city\" : \"Vadodara\",\r\n        \"state\" : \"Gujarat\",\r\n        \"zipCode\": \"390002\",\r\n        \"country\": \"India\"\r\n    },\r\n    \"PaymentSummary\": {\r\n        \"brand\": \"Mastercard\",\r\n        \"last4\": \"4444\",\r\n        \"expMonth\": 12,\r\n        \"year\": 2025\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/orders",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get orders for user",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/orders",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get order for user",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/orders/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"orders",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Saved Recipes",
+			"item": [
+				{
+					"name": "get saved",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/favorites/user-favorites",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"favorites",
+								"user-favorites"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add favorite",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/favorites/add-favorite/2",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"favorites",
+								"add-favorite",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "remove favorite",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/favorites/remove-favorite/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"favorites",
+								"remove-favorite",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get favorite by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/favorites/favorite/2",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"favorites",
+								"favorite",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
